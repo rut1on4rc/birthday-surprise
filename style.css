@@ -840,58 +840,7 @@ button{font:inherit}
 #opening{
   z-index:20;
 }
-/* =========================================
-   DREAMY LIGHT BACKGROUNDS
-   ========================================= */
 
-#opening {
-  background:
-    radial-gradient(circle at 50% 20%, rgba(255,255,255,.75), transparent 35%),
-    linear-gradient(145deg, #b9edff, #8edcf5, #a9dff5);
-}
-
-#pin {
-  background:
-    radial-gradient(circle at 50% 15%, rgba(255,255,255,.7), transparent 35%),
-    linear-gradient(145deg, #a9e7fa, #7fd2ef, #b6e8f7);
-}
-
-#gift {
-  background:
-    radial-gradient(circle at 50% 35%, rgba(255,255,255,.8), transparent 30%),
-    linear-gradient(145deg, #aeeeff, #8adcf5, #c2eafa);
-}
-
-#birthday {
-  background:
-    radial-gradient(circle at 50% 15%, rgba(255,255,255,.8), transparent 40%),
-    linear-gradient(145deg, #8de3ff, #71d1f2, #a8e8fa);
-}
-
-#bouquet {
-  background:
-    radial-gradient(circle at 50% 20%, rgba(255,255,255,.8), transparent 35%),
-    linear-gradient(145deg, #c5efff, #a9dff7, #c9d9f5);
-}
-
-#memories {
-  background:
-    radial-gradient(circle at 50% 20%, rgba(255,255,255,.75), transparent 35%),
-    linear-gradient(145deg, #9bdff5, #8bcde8, #b8dff0);
-}
-
-#letter {
-  background:
-    radial-gradient(circle at 80% 10%, rgba(255,255,255,.9), transparent 35%),
-    linear-gradient(180deg, #f8fdff, #dff6ff);
-}
-
-#finale {
-  background:
-    radial-gradient(circle at 50% 25%, rgba(255,255,255,.85), transparent 35%),
-    radial-gradient(circle at 20% 80%, rgba(255,190,220,.35), transparent 30%),
-    linear-gradient(145deg, #a8e8ff, #8bd8f5, #c7d9fa) !important;
-}
 /* =========================================
    EXTRA LIGHT MODE — FORCE BRIGHT SCREENS
    ========================================= */
