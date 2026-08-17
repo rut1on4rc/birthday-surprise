@@ -841,69 +841,54 @@ button{font:inherit}
   z-index:20;
 }
 /* =========================================
-   V8 — UNIQUE BACKGROUND FOR EACH SCREEN
+   DREAMY LIGHT BACKGROUNDS
    ========================================= */
 
-/* Opening — soft dreamy blue */
-#opening{
+#opening {
   background:
-    radial-gradient(circle at 50% 30%, rgba(190,240,255,.45), transparent 35%),
-    linear-gradient(145deg,#0b527d,#126f9d,#0a3d60);
+    radial-gradient(circle at 50% 20%, rgba(255,255,255,.75), transparent 35%),
+    linear-gradient(145deg, #b9edff, #8edcf5, #a9dff5);
 }
 
-/* PIN — mysterious night */
-#pin{
+#pin {
   background:
-    radial-gradient(circle at 50% 20%, rgba(125,210,255,.25), transparent 30%),
-    linear-gradient(160deg,#071d32,#0a3b5c,#06243c);
+    radial-gradient(circle at 50% 15%, rgba(255,255,255,.7), transparent 35%),
+    linear-gradient(145deg, #a9e7fa, #7fd2ef, #b6e8f7);
 }
 
-/* Gift — brighter magical blue */
-#gift{
+#gift {
   background:
-    radial-gradient(circle at 50% 45%, rgba(255,230,150,.16), transparent 24%),
-    radial-gradient(circle at 50% 15%, rgba(155,230,255,.35), transparent 40%),
-    linear-gradient(160deg,#0b6492,#1686b9,#0b4c72);
+    radial-gradient(circle at 50% 35%, rgba(255,255,255,.8), transparent 30%),
+    linear-gradient(145deg, #aeeeff, #8adcf5, #c2eafa);
 }
 
-/* Birthday — bright sky */
-#birthday{
+#birthday {
   background:
-    radial-gradient(circle at 50% 20%, rgba(210,247,255,.55), transparent 38%),
-    linear-gradient(160deg,#1ba4da,#1287bd,#0b6392);
+    radial-gradient(circle at 50% 15%, rgba(255,255,255,.8), transparent 40%),
+    linear-gradient(145deg, #8de3ff, #71d1f2, #a8e8fa);
 }
 
-/* Bouquet — romantic blue/purple */
-#bouquet{
+#bouquet {
   background:
-    radial-gradient(circle at 50% 20%, rgba(220,190,255,.18), transparent 30%),
-    radial-gradient(circle at 20% 80%, rgba(130,220,255,.18), transparent 30%),
-    linear-gradient(145deg,#174d72,#225b82,#103b5b);
+    radial-gradient(circle at 50% 20%, rgba(255,255,255,.8), transparent 35%),
+    linear-gradient(145deg, #c5efff, #a9dff7, #c9d9f5);
 }
 
-/* Memories — deeper cinematic */
-#memories{
+#memories {
   background:
-    radial-gradient(circle at 50% 15%, rgba(143,216,255,.25), transparent 28%),
-    radial-gradient(circle at 80% 80%, rgba(130,170,255,.12), transparent 30%),
-    linear-gradient(160deg,#092b43,#071d2d,#041522);
+    radial-gradient(circle at 50% 20%, rgba(255,255,255,.75), transparent 35%),
+    linear-gradient(145deg, #9bdff5, #8bcde8, #b8dff0);
 }
 
-/* Letter — keep it light and readable */
-#letter{
+#letter {
   background:
-    radial-gradient(circle at 85% 10%, rgba(130,215,255,.28), transparent 30%),
-    linear-gradient(180deg,#eefbff,#d8f3ff);
+    radial-gradient(circle at 80% 10%, rgba(255,255,255,.9), transparent 35%),
+    linear-gradient(180deg, #f8fdff, #dff6ff);
 }
 
-/* Final confession — dramatic */
-#finale{
+#finale {
   background:
-    radial-gradient(circle at 50% 25%, rgba(160,235,255,.35), transparent 30%),
-    radial-gradient(circle at 20% 80%, rgba(100,180,255,.18), transparent 30%),
-    linear-gradient(160deg,#0b4265,#082b45,#041a2b) !important;
+    radial-gradient(circle at 50% 25%, rgba(255,255,255,.85), transparent 35%),
+    radial-gradient(circle at 20% 80%, rgba(255,190,220,.35), transparent 30%),
+    linear-gradient(145deg, #a8e8ff, #8bd8f5, #c7d9fa) !important;
 }
-#opening .small-text{
-  margin-top:10px;
-}
-
