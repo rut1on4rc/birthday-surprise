@@ -349,8 +349,7 @@ setTimeout(() => {
 // ===============================
 // BACKGROUND MUSIC
 // ===============================
-const bgMusic = document.getElementById("bgMusic");
-const musicToggle = document.getElementById("musicToggle");
+
 
 function updateMusicButton() {
   if (!musicToggle || !bgMusic) return;
