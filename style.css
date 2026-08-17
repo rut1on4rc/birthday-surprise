@@ -1,0 +1,846 @@
+*{box-sizing:border-box}
+:root{
+  --bg:#0b4f78;
+  --bg2:#187fb5;
+  --pink:#aee8ff;
+  --soft:#e9f8ff;
+  --white:#fff7fa;
+  --glass:rgba(255,235,243,.10);
+}
+html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{
+  font-family:"DM Sans",sans-serif;
+  color:var(--white);
+  background:var(--bg);
+}
+button{font:inherit}
+#app{width:100%;height:100%;position:relative}
+.screen{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  flex-direction:column;opacity:0;pointer-events:none;transform:scale(.98);
+  transition:opacity .7s ease,transform .7s ease;
+  overflow:hidden;
+  background:radial-gradient(circle at 50% 30%,#2a9bd6 0,#0b4f78 55%,#06324d 100%);
+}
+.screen.active{opacity:1;pointer-events:auto;transform:scale(1)}
+.small-text{font-size:11px;letter-spacing:.4px;opacity:.45}
+.flower-loader{font-size:48px;position:relative;width:100px;height:80px}
+.flower-loader span{position:absolute;animation:float 2.5s ease-in-out infinite}
+.flower-loader span:nth-child(1){left:8px;top:18px}
+.flower-loader span:nth-child(2){left:35px;top:2px;animation-delay:.3s}
+.flower-loader span:nth-child(3){left:61px;top:25px;animation-delay:.6s}
+@keyframes float{50%{transform:translateY(-10px) rotate(5deg)}}
+
+.card{
+  width:min(90vw,390px);padding:30px 24px 25px;text-align:center;
+  background:rgba(255,230,240,.10);border:1px solid rgba(255,255,255,.12);
+  border-radius:20px;box-shadow:0 20px 60px #18061255;backdrop-filter:blur(8px)
+}
+.card h1,.letter h2{font-family:"Cormorant Garamond",serif;font-weight:500}
+.card h1{font-size:29px;margin:8px 0 2px}
+.card p{font-size:11px;opacity:.45;margin:0}
+.flower-top{font-size:29px}
+.dots{display:flex;justify-content:center;gap:9px;margin:20px 0}
+.dots i{width:11px;height:11px;border-radius:50%;border:1px solid #aee8ff;display:block}
+.dots i.filled{background:#aee8ff;box-shadow:0 0 10px #aee8ff88}
+.keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:240px;margin:auto}
+.keypad button{
+  width:55px;height:45px;margin:auto;border-radius:50%;border:1px solid #ffffff14;
+  background:#ffffff08;color:#fff;cursor:pointer;transition:.15s
+}
+.keypad button:active{transform:scale(.9);background:#ffffff18}
+.keypad .muted{color:#b8edff88}
+.hint{margin-top:20px!important}
+
+#gift .opening-label{font-size:11px;letter-spacing:.5px;opacity:.75}
+.gift-box{position:relative;width:140px;height:110px;border:0;background:none;margin-top:25px;cursor:pointer;animation:bob 1.7s infinite ease-in-out}
+.gift-box .box{position:absolute;left:10px;right:10px;bottom:0;height:72px;background:linear-gradient(135deg,#62b9ea,#238dcc);border-radius:3px;box-shadow:0 18px 40px #0005}
+.gift-box .lid{position:absolute;left:4px;right:4px;top:23px;height:23px;background:#83d6ff;border-radius:3px;z-index:3}
+.gift-box .ribbon-v{position:absolute;left:57px;top:20px;width:24px;height:90px;background:#ffe889;z-index:4}
+.gift-box .ribbon-h{position:absolute;left:5px;right:5px;top:54px;height:20px;background:#ffe889;z-index:4}
+@keyframes bob{50%{transform:translateY(-8px)}}
+.gift-box.open .lid{animation:lid .7s forwards}
+@keyframes lid{to{transform:translateY(-35px) rotate(-5deg);opacity:0}}
+
+#birthday{text-align:center}
+.eyebrow{font-size:9px;letter-spacing:3px;opacity:.65}
+#birthday h2{font:500 54px/1.0 "Cormorant Garamond",serif;margin:18px 0}
+#birthday h2 em{color:#b8edff}
+#birthday h2 strong{font-weight:500}
+.age{font-family:"Cormorant Garamond",serif;font-size:20px;opacity:.7}
+.date-line{font-size:8px;letter-spacing:2px;opacity:.4}
+.next-btn{
+  margin-top:28px;border:1px solid #ffffff25;border-radius:30px;background:#ffffff0d;color:#fff;
+  padding:10px 18px;font-size:11px;cursor:pointer
+}
+.floating-flowers{position:absolute;inset:0;pointer-events:none}
+.floating-flowers:before{
+  content:"🌸   🌼     🌷          🌺      🌸";
+  position:absolute;top:25px;left:5%;right:5%;font-size:18px;word-spacing:20px;opacity:.8
+}
+
+#bouquet{text-align:center}
+.bouquet-wrap{width:min(92vw,410px)}
+.bouquet-wrap h2{font:500 28px "Cormorant Garamond",serif;margin:6px}
+.bouquet-wrap .sub{font-size:9px;opacity:.45}
+.flowers{height:250px;position:relative;margin-top:10px}
+.flowers span{position:absolute;font-size:27px;animation:sway 3s ease-in-out infinite}
+.flowers span:nth-child(1){left:20%;top:40px}.flowers span:nth-child(2){left:39%;top:8px}
+.flowers span:nth-child(3){left:58%;top:45px}.flowers span:nth-child(4){left:72%;top:90px}
+.flowers span:nth-child(5){left:31%;top:100px}.flowers span:nth-child(6){left:52%;top:90px}
+.flowers span:nth-child(7){left:44%;top:145px}.flowers span:nth-child(8){left:17%;top:125px}
+.flowers span:nth-child(9){left:67%;top:150px}
+@keyframes sway{50%{transform:translateY(-7px) rotate(6deg)}}
+.vase{font-size:54px;margin-top:-100px;position:relative;z-index:2}
+.message-box{
+  margin:18px auto 0;padding:17px;border-radius:18px;background:#ffffff0d;border:1px solid #ffffff12;
+  font:italic 14px "Cormorant Garamond",serif;line-height:1.35;max-width:360px
+}
+#bouquet .next-btn{position:absolute;bottom:24px}
+
+.letter-screen{background:#f4fcff;color:#155a80;overflow:auto;justify-content:flex-start}
+.letter{width:min(90vw,430px);min-height:100%;padding:35px 20px 50px;position:relative}
+.letter-date{text-align:center;font:italic 13px "Cormorant Garamond",serif;opacity:.55}
+.tiny-flower{text-align:center;font-size:20px;margin:8px}
+.letter h2{font-size:25px;margin:25px 0 18px}
+.letter p{font:14px/1.75 "Cormorant Garamond",serif;margin:0 0 17px}
+.letter .promise{font-style:italic;color:#3d89b1;margin-top:28px}
+.signature{text-align:right;font:italic 16px/1.5 "Cormorant Garamond",serif;margin-top:25px}
+.signature strong{font-size:22px}
+.letter:before,.letter:after{content:"🌸";position:absolute;font-size:20px;opacity:.6}
+.letter:before{top:90px;right:10px}.letter:after{bottom:80px;left:5px}
+
+@media(max-height:700px){
+  .card{padding:20px}.keypad button{height:39px}
+  #birthday h2{font-size:45px}.flowers{height:210px}
+}
+
+#memories{background:radial-gradient(circle at 50% 15%,rgba(143,216,255,.2),transparent 28%),linear-gradient(160deg,#0d3652,#081d2c)}
+.memory-card{width:min(88vw,390px);padding:34px 25px;text-align:center;border:1px solid rgba(180,230,255,.2);border-radius:25px;background:rgba(235,249,255,.08);box-shadow:0 25px 70px rgba(0,0,0,.3);backdrop-filter:blur(12px)}
+.envelope-icon{font-size:58px;margin:10px 0 4px}
+.memory-card h2{font:500 38px "Cormorant Garamond",serif;margin:6px 0 14px}
+.memory-card p{font:16px/1.5 "Cormorant Garamond",serif;opacity:.78}
+.quote{margin:22px 0;padding:18px;border-left:2px solid #aee8ff;background:rgba(143,216,255,.06);font:italic 15px/1.55 "Cormorant Garamond",serif}
+.from{text-align:right;color:#9bdfff!important}
+
+/* ===== V3 extras ===== */
+.music-toggle{
+  position:fixed;z-index:50;top:16px;right:16px;width:38px;height:38px;
+  border-radius:50%;border:1px solid rgba(190,235,255,.28);
+  background:rgba(8,35,52,.48);color:#c9efff;backdrop-filter:blur(8px);
+  cursor:pointer;font-size:18px;box-shadow:0 8px 24px rgba(0,0,0,.2)
+}
+.music-toggle.playing{box-shadow:0 0 0 5px rgba(143,216,255,.08),0 0 25px rgba(143,216,255,.28)}
+.starfield,.final-stars{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.starfield:before,.starfield:after,.final-stars:before,.final-stars:after{
+  content:"✦  ·  ✧     ·    ✦       ·  ✧   ·     ✦";
+  position:absolute;left:-10%;width:120%;color:#d5f3ff;opacity:.35;
+  letter-spacing:18px;font-size:11px;animation:starsDrift 12s linear infinite
+}
+.starfield:before,.final-stars:before{top:16%;animation-duration:15s}
+.starfield:after,.final-stars:after{top:60%;opacity:.22;animation-duration:19s;animation-direction:reverse}
+@keyframes starsDrift{from{transform:translateX(-4%)}to{transform:translateX(4%)}}
+
+.name-glow{
+  font:italic 21px "Cormorant Garamond",serif;color:#a9e4ff;
+  margin-top:-4px;opacity:0;animation:nameReveal 2s 1.1s forwards;
+  text-shadow:0 0 18px rgba(143,216,255,.55)
+}
+@keyframes nameReveal{
+  from{opacity:0;transform:translateY(12px);letter-spacing:0}
+  to{opacity:.85;transform:translateY(0);letter-spacing:5px}
+}
+
+.letter p.typewriter-ready{opacity:1}
+.letter .typewriter-hidden{visibility:hidden}
+.typewriter-cursor{
+  display:none;position:absolute;width:2px;height:18px;background:#3d89b1;
+  animation:blink .7s infinite
+}
+@keyframes blink{50%{opacity:0}}
+.final-letter-btn{display:block;margin:30px auto 0}
+#letter .next-btn{pointer-events:auto}
+
+#finale{
+  background:
+    radial-gradient(circle at 50% 25%,rgba(143,216,255,.20),transparent 27%),
+    radial-gradient(circle at 80% 75%,rgba(113,193,239,.10),transparent 25%),
+    linear-gradient(160deg,#0d3652,#061b2a)
+}
+.finale-card{
+  width:min(88vw,410px);text-align:center;padding:38px 26px;
+  border-radius:28px;border:1px solid rgba(190,235,255,.18);
+  background:rgba(220,245,255,.07);backdrop-filter:blur(14px);
+  box-shadow:0 25px 80px rgba(0,0,0,.32)
+}
+.final-heart{font-size:62px;filter:drop-shadow(0 0 22px rgba(143,216,255,.4));animation:heartPulse 1.7s infinite}
+@keyframes heartPulse{50%{transform:scale(1.08)}}
+.finale-card h2{font:500 34px "Cormorant Garamond",serif;margin:14px 0 10px}
+.finale-card>p:not(.eyebrow){font:16px/1.55 "Cormorant Garamond",serif;opacity:.8}
+.final-line{
+  margin:22px 0;padding:16px;border-top:1px solid rgba(143,216,255,.18);
+  border-bottom:1px solid rgba(143,216,255,.18);
+  font:italic 17px/1.5 "Cormorant Garamond",serif;color:#b9eaff
+}
+.final-sign{text-align:right;font:italic 17px "Cormorant Garamond",serif;color:#9bdfff}
+.replay-btn{
+  margin-top:28px;padding:10px 16px;border-radius:24px;border:1px solid #ffffff22;
+  background:#ffffff0a;color:#eaf9ff;cursor:pointer;font-size:11px
+}
+
+/* ===== Stability fixes ===== */
+.screen{isolation:isolate}
+.starfield,.final-stars{z-index:0}
+.starfield:before,.starfield:after,.final-stars:before,.final-stars:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  width:auto;
+  height:auto;
+  background-image:
+    radial-gradient(circle at 12% 18%,rgba(220,246,255,.55) 0 1px,transparent 2px),
+    radial-gradient(circle at 72% 24%,rgba(220,246,255,.45) 0 1px,transparent 2px),
+    radial-gradient(circle at 31% 67%,rgba(220,246,255,.40) 0 1px,transparent 2px),
+    radial-gradient(circle at 88% 76%,rgba(220,246,255,.45) 0 1px,transparent 2px),
+    radial-gradient(circle at 54% 46%,rgba(220,246,255,.30) 0 1px,transparent 2px);
+  background-size:180px 180px,230px 230px,260px 260px,210px 210px,310px 310px;
+  opacity:.55;
+  animation:softStars 18s ease-in-out infinite alternate;
+}
+.starfield:after,.final-stars:after{
+  opacity:.25;
+  transform:scale(1.25);
+  animation-duration:24s;
+  animation-direction:alternate-reverse;
+}
+@keyframes softStars{
+  from{transform:translate3d(0,0,0);opacity:.28}
+  to{transform:translate3d(0,-12px,0);opacity:.62}
+}
+#birthday>*:not(.starfield),#finale>*:not(.final-stars){position:relative;z-index:2}
+#finale .final-stars{z-index:0}
+#finale .finale-card{
+  position:relative;
+  z-index:3;
+  color:#eefaff;
+  background:rgba(13,54,82,.82);
+  border:1px solid rgba(178,230,255,.28);
+  box-shadow:0 25px 80px rgba(0,0,0,.42),0 0 45px rgba(93,183,232,.10);
+}
+#finale .finale-card h2{color:#f2fbff}
+#finale .finale-card>p:not(.eyebrow){color:#d9f2ff}
+#finale .final-line{color:#bdeaff}
+#finale .final-sign{color:#a8e2ff}
+#finale .replay-btn{color:#eaf9ff;background:rgba(143,216,255,.08);border-color:rgba(180,230,255,.25)}
+.letter{padding-bottom:90px}
+.final-letter-btn{position:relative!important;z-index:5}
+
+/* FINAL POLISH: dedicated button + stable final transition */
+#letter .final-letter-btn{
+  display:block;
+  position:relative !important;
+  z-index:20;
+  margin:34px auto 8px;
+  min-width:190px;
+  padding:13px 22px;
+  border:1px solid rgba(77,145,180,.35);
+  border-radius:999px;
+  background:#ffffff !important;
+  color:#155a80 !important;
+  box-shadow:0 8px 25px rgba(35,103,139,.18);
+  font-size:12px;
+  font-weight:500;
+  cursor:pointer;
+  opacity:1 !important;
+  transform:none !important;
+}
+#letter .final-letter-btn:hover{
+  background:#e9f8ff !important;
+  transform:translateY(-2px) !important;
+}
+#letter .final-letter-btn:active{
+  transform:scale(.97) !important;
+}
+
+/* Completely opaque final screen so the old screen cannot show through. */
+#finale{
+  z-index:30 !important;
+  background:#08243a !important;
+  opacity:0;
+  transition:opacity .55s ease !important;
+}
+#finale.active{
+  opacity:1 !important;
+}
+#finale .final-stars{
+  opacity:.35;
+  z-index:0;
+}
+#finale .finale-card{
+  z-index:10 !important;
+  width:min(88vw,410px);
+  min-height:330px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(145deg,#187fb5,#0d3550) !important;
+  border:1px solid rgba(190,235,255,.35) !important;
+  border-radius:28px;
+  box-shadow:0 28px 80px rgba(0,0,0,.5),0 0 35px rgba(120,205,245,.12);
+}
+#finale .final-heart,
+#finale .eyebrow,
+#finale h2,
+#finale p,
+#finale .final-line,
+#finale .final-sign,
+#finale .replay-btn{
+  position:relative;
+  z-index:11;
+}
+#finale .final-heart{margin-top:0}
+#finale .replay-btn{
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(210,242,255,.35);
+}
+
+/* ===== V5 bug fixes ===== */
+
+/* PIN is four digits, so exactly four dots. */
+#pin .dots{min-height:14px}
+#pin .dots i{flex:0 0 11px}
+
+/* Birthday name: never overflow on narrow screens. */
+#birthday h2{
+  width:min(94vw,520px);
+  padding:0 8px;
+  overflow-wrap:anywhere;
+  word-break:normal;
+  font-size:clamp(38px,10vw,54px);
+  line-height:.98;
+}
+#birthday h2 strong{
+  display:block;
+  max-width:100%;
+  font-size:.92em;
+  letter-spacing:-.5px;
+}
+#birthday .eyebrow{position:relative;z-index:4}
+#birthday h2{position:relative;z-index:4}
+
+/* Remove the old moving flower strip that was sitting behind/through the title. */
+#birthday .floating-flowers{
+  display:none !important;
+}
+
+/* Stable birthday flower decorations: individual flowers stay at the edges,
+   never directly behind the title. */
+#birthday:before,
+#birthday:after{
+  content:"🌸";
+  position:absolute;
+  z-index:1;
+  font-size:20px;
+  opacity:.65;
+  pointer-events:none;
+}
+#birthday:before{top:11%;left:9%}
+#birthday:after{top:18%;right:9%}
+
+/* Bouquet flowers are confined to their own area and cannot overlap the heading. */
+#bouquet .bouquet-wrap{
+  position:relative;
+  z-index:2;
+}
+#bouquet .bouquet-wrap .eyebrow,
+#bouquet .bouquet-wrap h2,
+#bouquet .bouquet-wrap .sub{
+  position:relative;
+  z-index:5;
+}
+#bouquet .stable-flowers{
+  position:relative;
+  width:min(88vw,360px);
+  height:230px;
+  margin:14px auto 0;
+  overflow:hidden;
+}
+#bouquet .stable-flowers span{
+  z-index:1;
+}
+#bouquet .vase{
+  z-index:3;
+}
+
+/* One Last Thing: make the button a guaranteed interactive layer. */
+#letter .final-letter-btn{
+  pointer-events:auto !important;
+  touch-action:manipulation;
+  cursor:pointer;
+  position:relative !important;
+  z-index:100 !important;
+  opacity:1 !important;
+  visibility:visible !important;
+}
+#letter{
+  z-index:20;
+}
+#letter.active{
+  pointer-events:auto !important;
+}
+
+@media(max-width:430px){
+  #birthday h2{font-size:42px}
+  #birthday h2 strong{font-size:.82em}
+}
+@media(max-width:360px){
+  #birthday h2{font-size:36px}
+  #birthday h2 strong{font-size:.78em}
+}
+
+/* V6: brighter sky-blue theme */
+.screen{
+  background:
+    radial-gradient(circle at 50% 20%,rgba(128,218,255,.28),transparent 34%),
+    linear-gradient(160deg,#0f6b9b 0%,#0b527d 52%,#083d61 100%);
+}
+#pin .card{
+  background:rgba(225,247,255,.13);
+  border-color:rgba(210,245,255,.24);
+}
+#birthday{
+  background:
+    radial-gradient(circle at 50% 15%,rgba(157,232,255,.34),transparent 38%),
+    linear-gradient(160deg,#1387bc,#0d6695,#0a4b72);
+}
+#finale{
+  background:
+    radial-gradient(circle at 50% 18%,rgba(164,236,255,.34),transparent 36%),
+    linear-gradient(160deg,#1185ba,#0d6491,#0a4b72) !important;
+}
+#finale .finale-card{
+  background:linear-gradient(145deg,#2297ca,#126e9f) !important;
+  border-color:rgba(220,248,255,.42) !important;
+}
+
+/* ===== V7: readable letter + brighter blue ===== */
+
+/* Brighter main blue, while keeping text readable. */
+.screen{
+  background:
+    radial-gradient(circle at 50% 12%,rgba(190,239,255,.38),transparent 34%),
+    linear-gradient(160deg,#1599d2 0%,#0e7fb5 52%,#0b6392 100%);
+}
+
+/* Letter is intentionally light so the typewriter text cannot disappear. */
+.letter-screen{
+  background:
+    radial-gradient(circle at 85% 12%,rgba(139,220,255,.35),transparent 28%),
+    linear-gradient(180deg,#eaf9ff 0%,#d8f3ff 100%) !important;
+  color:#174b68 !important;
+  align-items:center;
+  justify-content:flex-start;
+  overflow-y:auto;
+  overflow-x:hidden;
+  padding:18px 0 35px;
+}
+.letter{
+  width:min(92vw,560px);
+  min-height:auto;
+  margin:0 auto;
+  padding:34px 28px 30px;
+  border-radius:26px;
+  background:rgba(255,255,255,.78);
+  border:1px solid rgba(79,166,207,.22);
+  box-shadow:0 20px 55px rgba(21,103,142,.16);
+  color:#174b68 !important;
+}
+.letter-date{
+  color:#4d7d96 !important;
+  opacity:.8;
+}
+.letter h2{
+  color:#164c69 !important;
+  font-size:30px;
+  margin:18px 0 22px;
+}
+.letter p{
+  color:#245b77 !important;
+  opacity:1 !important;
+  font:16px/1.75 "Cormorant Garamond",serif;
+  margin:0 0 18px;
+  min-height:1.7em;
+}
+.letter p[data-letter]{
+  display:none;
+}
+.letter p[data-letter].showing{
+  display:block;
+  animation:letterFade .45s ease both;
+}
+@keyframes letterFade{
+  from{opacity:0;transform:translateY(6px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.letter .confession-lead{
+  color:#155b83 !important;
+  font-weight:600;
+}
+.letter .confession-question{
+  color:#155b83 !important;
+  font-style:italic;
+}
+.letter .signature{
+  color:#286b89 !important;
+  text-align:right;
+  font:italic 18px "Cormorant Garamond",serif;
+  margin-top:28px;
+}
+#letter .final-letter-btn{
+  display:block;
+  margin:28px auto 0;
+  background:#178bc1 !important;
+  color:#fff !important;
+  border:1px solid #69c4ea !important;
+  box-shadow:0 9px 22px rgba(23,139,193,.22);
+}
+
+/* Final page: much brighter blue and clear text. */
+#finale{
+  background:
+    radial-gradient(circle at 50% 14%,rgba(190,241,255,.42),transparent 36%),
+    linear-gradient(160deg,#1299d2,#0e7fb5,#0b6593) !important;
+}
+#finale .finale-card{
+  background:linear-gradient(145deg,rgba(26,151,204,.96),rgba(15,112,164,.96)) !important;
+  border-color:rgba(226,249,255,.48) !important;
+  box-shadow:0 28px 80px rgba(4,58,88,.38),0 0 40px rgba(155,231,255,.16);
+}
+#finale .finale-card h2{color:#fff !important}
+#finale .final-main,#finale .final-small{color:#eaf9ff !important}
+#finale .final-line{
+  color:#fff !important;
+  border-color:rgba(218,247,255,.28);
+  background:rgba(255,255,255,.07);
+  border-radius:16px;
+}
+#finale .final-sign{color:#c9efff !important}
+#finale .replay-btn{
+  color:#fff !important;
+  background:rgba(255,255,255,.12) !important;
+  border-color:rgba(225,249,255,.35) !important;
+}
+
+/* Remove any old birthday flower strip that can sit over text. */
+#birthday .floating-flowers{display:none !important}
+
+/* V8: loading screen is deterministic and finite */
+#loading{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transition:opacity .35s ease,visibility .35s ease;
+}
+#loading.active{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+}
+#loading .loading-flower{
+  animation:loadingFloat 1.8s ease-in-out infinite;
+}
+@keyframes loadingFloat{
+  0%,100%{transform:translateY(0) scale(1)}
+  50%{transform:translateY(-7px) scale(1.04)}
+}
+
+/* V9: direct Opening -> PIN -> Gift flow; no phantom loading screen. */
+#gift{
+  background:
+    radial-gradient(circle at 50% 38%,rgba(194,241,255,.38),transparent 26%),
+    linear-gradient(160deg,#159ed8,#0d80b7,#0a6392) !important;
+}
+#gift .gift-box{cursor:pointer}
+
+/* V10: friend-first letter; confession only on the final page. */
+#pin .card h2{font-size:28px}
+.letter h2{
+  font-size:32px;
+  color:#164c69 !important;
+}
+.letter .tiny-flower{
+  color:#6aa9c4 !important;
+  font-size:16px;
+}
+.letter p{
+  color:#245b77 !important;
+}
+#letter .final-letter-btn{
+  letter-spacing:.1px;
+}
+#finale .final-heart{
+  color:#eaf9ff !important;
+  font-size:28px;
+}
+#finale .final-line{
+  font-size:18px;
+  line-height:1.7;
+}
+
+/* V11: strict one-screen-at-a-time isolation */
+.screen{
+  visibility:hidden;
+  z-index:0;
+}
+.screen.active{
+  visibility:visible;
+  z-index:10;
+}
+.screen:not(.active){
+  pointer-events:none !important;
+}
+.screen.active{
+  pointer-events:auto !important;
+}
+#finale:not(.active){
+  display:flex !important;
+}
+
+/* V12: direct, clear confession */
+#finale .confession-question{
+  color:#fff !important;
+  font-size:24px;
+  font-weight:600;
+  margin-top:24px;
+}
+
+
+/* ===== FINAL SLIDE — inspired by the supplied reference ===== */
+#finale{
+  overflow-y:auto !important;
+  overflow-x:hidden !important;
+  align-items:center;
+  justify-content:center;
+  padding:28px 0;
+  color:#f7fbff;
+  background:
+    radial-gradient(circle at 50% 9%,rgba(255,255,255,.16),transparent 17%),
+    radial-gradient(circle at 10% 75%,rgba(55,166,238,.22),transparent 25%),
+    radial-gradient(circle at 90% 30%,rgba(87,190,247,.18),transparent 24%),
+    linear-gradient(160deg,#249bd8 0%,#1885c2 52%,#0962a0 100%) !important;
+}
+
+#finale .final-stars{
+  opacity:1 !important;
+  z-index:0;
+}
+#finale .final-stars:before,
+#finale .final-stars:after{
+  background-image:
+    radial-gradient(circle at 4% 4%,rgba(255,255,255,.82) 0 1.5px,transparent 2px),
+    radial-gradient(circle at 17% 20%,rgba(220,247,255,.55) 0 1px,transparent 2px),
+    radial-gradient(circle at 31% 8%,rgba(255,255,255,.48) 0 1px,transparent 2px),
+    radial-gradient(circle at 49% 16%,rgba(255,255,255,.70) 0 1.5px,transparent 2px),
+    radial-gradient(circle at 64% 8%,rgba(220,247,255,.55) 0 1px,transparent 2px),
+    radial-gradient(circle at 82% 18%,rgba(255,255,255,.55) 0 1px,transparent 2px),
+    radial-gradient(circle at 96% 4%,rgba(255,255,255,.85) 0 1.2px,transparent 2px),
+    radial-gradient(circle at 7% 42%,rgba(255,255,255,.60) 0 1px,transparent 2px),
+    radial-gradient(circle at 92% 50%,rgba(255,255,255,.62) 0 1px,transparent 2px),
+    radial-gradient(circle at 18% 76%,rgba(255,255,255,.52) 0 1px,transparent 2px),
+    radial-gradient(circle at 78% 78%,rgba(255,255,255,.48) 0 1px,transparent 2px);
+  background-size:100% 100%;
+  opacity:.78;
+  animation:finaleTwinkle 8s ease-in-out infinite alternate;
+}
+#finale .final-stars:after{
+  opacity:.38;
+  transform:scale(1.08);
+  animation-duration:12s;
+}
+@keyframes finaleTwinkle{
+  from{opacity:.42;transform:translateY(0)}
+  to{opacity:.82;transform:translateY(-5px)}
+}
+
+.finale-frame{
+  position:relative;
+  z-index:5;
+  width:min(78vw,820px);
+  min-height:calc(100vh - 40px);
+  height:auto;
+  margin:20px 0;
+  padding:34px 26px 42px;
+  border:1.5px solid rgba(209,244,255,.62);
+  border-radius:32px;
+  background:rgba(30,145,205,.12);
+  box-shadow:inset 0 0 40px rgba(255,255,255,.035),0 18px 60px rgba(4,48,85,.12);
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  flex:0 0 auto;
+}
+
+#finale .finale-card{
+  width:100%;
+  min-height:0;
+  padding:18px 34px 26px;
+  margin:0;
+  border:0 !important;
+  border-radius:0 !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  backdrop-filter:none;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  text-align:center;
+  color:#f8fcff;
+}
+
+#finale .final-star{
+  font-size:43px;
+  line-height:1;
+  margin:0 0 18px;
+  color:#fff;
+  text-shadow:0 0 18px rgba(255,255,255,.45);
+}
+#finale .eyebrow{
+  margin:0;
+  color:#d8f4ff;
+  opacity:.76;
+  font-size:13px;
+  letter-spacing:4px;
+}
+#finale h2{
+  margin:24px 0 4px;
+  color:#fff !important;
+  font:500 clamp(58px,7vw,92px)/.95 "Cormorant Garamond",serif;
+  letter-spacing:-1.5px;
+  text-shadow:0 3px 12px rgba(18,88,132,.25);
+}
+#finale .final-flower{
+  font-size:31px;
+  margin:12px 0 26px;
+  filter:drop-shadow(0 3px 7px rgba(17,71,111,.22));
+}
+#finale .final-copy{
+  width:min(100%,650px);
+  font:500 clamp(18px,2.05vw,25px)/1.45 "Cormorant Garamond",serif;
+  color:#f6fcff;
+  text-shadow:0 2px 8px rgba(11,74,117,.18);
+}
+#finale .final-copy p{
+  margin:0 0 34px;
+  color:inherit !important;
+  opacity:1 !important;
+}
+#finale .final-copy p:nth-child(3){
+  margin-top:-3px;
+}
+#finale .final-question{
+  width:min(100%,650px);
+  margin:3px auto 25px;
+  position:relative;
+  z-index:12;
+  padding:27px 24px;
+  border:1.5px solid rgba(197,239,255,.66);
+  border-radius:22px;
+  background:rgba(255,255,255,.035);
+  font:500 clamp(27px,3.2vw,42px)/1.15 "Cormorant Garamond",serif;
+  color:#fff;
+  box-shadow:inset 0 0 25px rgba(255,255,255,.025);
+}
+#finale .final-question span{
+  display:block;
+  margin-top:13px;
+  font-size:31px;
+}
+#finale .final-actions{
+  width:min(100%,650px);
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:28px;
+  margin:9px auto 0;
+}
+#finale .answer-btn{
+  min-height:54px;
+  border-radius:999px;
+  padding:13px 22px;
+  font:600 17px "DM Sans",sans-serif;
+  cursor:pointer;
+  transition:transform .18s ease,box-shadow .18s ease,background .18s ease;
+}
+#finale .answer-btn:hover{transform:translateY(-2px)}
+#finale .answer-btn:active{transform:scale(.98)}
+#finale .answer-btn.is-selected{transform:translateY(-2px) scale(1.01);box-shadow:0 0 0 3px rgba(210,245,255,.18),0 12px 30px rgba(8,66,105,.22)}
+#finale .answer-time.is-selected{background:rgba(255,255,255,.12)}
+#finale .send-status{display:inline-block;margin-top:7px;font-style:normal;font-size:.9em;opacity:.9}
+#finale .answer-yes{
+  border:1px solid rgba(255,255,255,.68);
+  background:#f7fbff;
+  color:#1678b2;
+  box-shadow:0 9px 26px rgba(8,66,105,.17);
+}
+#finale .answer-time{
+  border:1px solid rgba(197,239,255,.68);
+  background:rgba(255,255,255,.025);
+  color:#f7fcff;
+}
+#finale .answer-note{
+  margin:25px 0 0;
+  position:relative;
+  z-index:12;
+  color:#d9f4ff !important;
+  opacity:.86 !important;
+  font:italic 15px/1.45 "Cormorant Garamond",serif;
+}
+#finale .answer-note.is-response{
+  font-style:normal;
+  font-size:16px;
+  color:#fff !important;
+}
+#finale .replay-btn{display:none !important}
+
+@media(max-width:700px){
+  #finale{padding:16px 0}
+  .finale-frame{
+    width:min(92vw,620px);
+    min-height:calc(100vh - 32px);
+    margin:16px 0;
+    padding:22px 14px 32px;
+    border-radius:25px;
+  }
+  #finale .finale-card{padding:12px 14px 20px}
+  #finale .final-star{font-size:34px;margin-bottom:12px}
+  #finale .eyebrow{font-size:10px;letter-spacing:3px}
+  #finale h2{font-size:clamp(52px,14vw,72px);margin-top:18px}
+  #finale .final-flower{font-size:27px;margin:9px 0 18px}
+  #finale .final-copy{
+    font-size:clamp(16px,4.3vw,21px);
+    line-height:1.42;
+  }
+  #finale .final-copy p{margin-bottom:23px}
+  #finale .final-question{padding:21px 14px;margin-top:0;font-size:clamp(25px,7vw,34px)}
+  #finale .final-question span{font-size:27px;margin-top:10px}
+  #finale .final-actions{gap:12px}
+  #finale .answer-btn{font-size:14px;padding:12px 9px;min-height:49px}
+  #finale .answer-note{font-size:12px;margin-top:19px}
+}
+@media(max-height:760px) and (min-width:701px){
+  #finale{padding:12px 0}
+  .finale-frame{min-height:94vh;padding:18px 22px}
+  #finale .final-copy p{margin-bottom:20px}
+  #finale h2{font-size:68px;margin-top:15px}
+  #finale .final-flower{margin:8px 0 15px}
+}
+
+/* V16: finite opening intro — never gets stuck on "Preparing something special..." */
+#opening{
+  z-index:20;
+}
+#opening .small-text{
+  margin-top:10px;
+}
+

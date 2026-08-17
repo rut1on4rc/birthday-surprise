@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>For You </title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="app">
+    <button id="musicToggle" class="music-toggle" aria-label="Toggle music">♫</button>
+    <audio id="bgMusic" loop preload="auto">
+      <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- 1. Opening -->
+    <section class="screen active" id="opening">
+      <div class="petals"></div>
+      <div class="flower-loader">
+        <span>🌸</span><span>🌷</span><span>🌼</span>
+      </div>
+      <p class="small-text">Preparing something special for you...</p>
+    </section>
+
+    <!-- 2. PIN -->
+    <section class="screen" id="pin">
+      <div class="stars"></div>
+      <div class="card">
+        <div class="flower-top">🌸</div>
+        <h1>A Little Surprise For You</h1>
+        <p>Enter the special code</p>
+        <div class="dots" id="dots">
+          <i></i><i></i><i></i><i></i>
+        </div>
+        <div class="keypad">
+          <button data-key="1">1</button><button data-key="2">2</button><button data-key="3">3</button>
+          <button data-key="4">4</button><button data-key="5">5</button><button data-key="6">6</button>
+          <button data-key="7">7</button><button data-key="8">8</button><button data-key="9">9</button>
+          <button class="muted" data-key="clear">×</button><button data-key="0">0</button><button class="muted" data-key="back">⌫</button>
+        </div>
+        <p class="hint">Hint: your 4-digit special date</p>
+      </div>
+    </section>
+
+    <!-- 3. Gift -->
+    <section class="screen" id="gift">
+      <p class="opening-label">✨ Opening your gift... ✨</p>
+      <button class="gift-box" id="giftBox" aria-label="Open gift">
+        <span class="lid"></span>
+        <span class="box"></span>
+        <span class="ribbon-v"></span>
+        <span class="ribbon-h"></span>
+      </button>
+    </section>
+
+    <!-- 4. Birthday -->
+    <section class="screen" id="birthday">
+      <div class="starfield"></div>
+      <div class="floating-flowers"></div>
+      <p class="eyebrow">🌸 YOUR SPECIAL DAY 🌸</p>
+      <h2>Happy<br><em>Birthday</em><br><strong id="personName">Nanda Kurnia Ramadani</strong></h2>
+      
+      <p class="age" id="ageText"></p>
+      <p class="date-line">JUNE 10 · THE MOST SPECIAL DAY</p>
+      <button class="next-btn" data-next="bouquet">Continue ✨</button>
+    </section>
+
+    <!-- 5. Bouquet -->
+    <section class="screen" id="bouquet">
+      <div class="bouquet-wrap">
+        <p class="eyebrow">🌸 — MY FIRST GIFT — 🌸</p>
+        <h2>A Digital Bouquet</h2>
+        <p class="sub">Each flower holds a little message just for you.</p>
+        <div class="flowers stable-flowers">
+          <span>🌸</span><span>🌼</span><span>🌷</span><span>🌹</span><span>🌻</span>
+          <span>🌺</span><span>🌼</span><span>🌸</span><span>🌼</span>
+        </div>
+        <div class="vase">🌷🌻🌹</div>
+        <div class="message-box">You are as beautiful as cherry blossoms — lovely and bringing joy wherever you go.</div>
+      </div>
+      <button class="next-btn" data-next="memories">One more thing ✨</button>
+    </section>
+
+    <!-- 6. Extra surprise -->
+    <section class="screen" id="memories">
+      <div class="memory-card">
+        <p class="eyebrow">✦ A LITTLE SURPRISE ✦</p>
+        <div class="envelope-icon">✉️</div>
+        <h2>For Nanda</h2>
+        <p>Some people make ordinary days feel a little brighter.</p>
+        <div class="quote">“May this new chapter bring you beautiful moments, peaceful days, and lots of reasons to smile.”</div>
+        <p class="from">— Gustavo</p>
+      </div>
+      <button class="next-btn" data-next="letter">Read my letter 💌</button>
+    </section>
+
+    <!-- Letter -->
+    <section class="screen letter-screen" id="letter">
+      <article class="letter">
+        <div class="letter-date">29 September</div>
+        <div class="tiny-flower">✦</div>
+        <h2>Dear Nanda,</h2>
+
+        <p data-letter="1">Happy birthday! I hope this new chapter of your life brings you plenty of good moments, good people, and lots of reasons to smile.</p>
+
+        <p data-letter="2">I’m really glad we became friends. You’re genuinely fun to talk to, and you have a way of making ordinary moments feel a little more memorable.</p>
+
+        <p data-letter="3">I hope the year ahead treats you well. May the things you’re working toward go smoothly, and may you get to make a lot of memories you’ll look back on with a smile.</p>
+
+        <p data-letter="4">Anyway, I just wanted to make something a little different for your birthday this year. Nothing too complicated — just a small surprise to remind you that you’re appreciated.</p>
+
+        <p data-letter="5">Have a great birthday, Nanda. Enjoy your day, take lots of pictures, eat something good, and most importantly, have fun.</p>
+
+        <div class="signature">— Gustavo</div>
+        <button class="next-btn final-letter-btn" id="oneLastThingBtn" data-next="finale" type="button">One last thing…</button>
+      </article>
+    </section>
+
+    <!-- Final confession -->
+    <section class="screen" id="finale">
+      <div class="final-stars"></div>
+
+      <div class="finale-frame">
+        <div class="finale-card">
+          <div class="final-star">✦</div>
+          <p class="eyebrow">ONE LAST THING</p>
+          <h2>I like you.</h2>
+          <div class="final-flower">🌸</div>
+
+          <div class="final-copy">
+            <p>There’s something I’ve been wanting to tell you for a long time, and today feels like the right time.</p>
+
+            <p>You’re not just a great friend to me,<br>
+            you’re someone who makes me really happy.<br>
+            I look forward to our talks, our laughs,<br>
+            and even the little moments we share.</p>
+
+            <p>The truth is... I like you.<br>
+            More than just a friend.</p>
+
+            <p>I like you for who you are,<br>
+            and I’d love the chance to know you<br>
+            more — in a deeper, more special way.</p>
+          </div>
+
+          <div class="final-question">Will you be my girlfriend?<span>💙</span></div>
+
+          <div class="final-actions">
+            <button class="answer-btn answer-yes" id="answerYes" type="button">Yes&nbsp; 💙</button>
+            <button class="answer-btn answer-time" id="answerTime" type="button">I need time&nbsp; 🌼</button>
+          </div>
+
+          <p class="answer-note" id="answerNote">No matter your answer,<br>I’ll always respect it and stay grateful to have you in my life. ✨</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
