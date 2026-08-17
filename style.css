@@ -1319,3 +1319,124 @@ button{font:inherit}
   border-color: rgba(220, 248, 255, .38);
   color: #e8faff;
 }
+/* =========================================
+   BLUE → SOFT PURPLE THEME
+   ========================================= */
+
+.screen {
+  background:
+    radial-gradient(
+      circle at 50% 12%,
+      rgba(220, 240, 255, .45),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #159ed8 0%,
+      #347fd1 45%,
+      #6d70c9 72%,
+      #8b6fc4 100%
+    );
+}
+
+/* PIN */
+#pin {
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(220, 240, 255, .45),
+      transparent 34%
+    ),
+    linear-gradient(
+      135deg,
+      #159ed8,
+      #397fd1 45%,
+      #746fc9 75%,
+      #8b6fc4
+    );
+}
+
+/* Gift */
+#gift {
+  background:
+    radial-gradient(
+      circle at 50% 35%,
+      rgba(230, 245, 255, .45),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #18a4dc,
+      #4383d3 45%,
+      #746fc9 72%,
+      #8b6fc4
+    ) !important;
+}
+
+/* Birthday */
+#birthday {
+  background:
+    radial-gradient(
+      circle at 50% 12%,
+      rgba(225, 246, 255, .50),
+      transparent 38%
+    ),
+    linear-gradient(
+      135deg,
+      #20a9df 0%,
+      #4084d3 42%,
+      #716fc9 72%,
+      #916fc5 100%
+    ) !important;
+}
+
+/* Bouquet */
+#bouquet {
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(225, 245, 255, .40),
+      transparent 34%
+    ),
+    linear-gradient(
+      135deg,
+      #1aa3db,
+      #4380d1 45%,
+      #746fc9 73%,
+      #906fc4
+    ) !important;
+}
+
+/* Memories */
+#memories {
+  background:
+    radial-gradient(
+      circle at 50% 15%,
+      rgba(190, 230, 255, .30),
+      transparent 32%
+    ),
+    linear-gradient(
+      135deg,
+      #126b9a,
+      #365fa0 48%,
+      #5f5b9e 75%,
+      #725b96
+    ) !important;
+}
+
+/* Finale */
+#finale {
+  background:
+    radial-gradient(
+      circle at 50% 10%,
+      rgba(230, 246, 255, .52),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #20a9df 0%,
+      #4184d4 42%,
+      #746fcb 72%,
+      #916fc7 100%
+    ) !important;
+}
