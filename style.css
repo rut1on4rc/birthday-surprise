@@ -840,6 +840,69 @@ button{font:inherit}
 #opening{
   z-index:20;
 }
+/* =========================================
+   V8 — UNIQUE BACKGROUND FOR EACH SCREEN
+   ========================================= */
+
+/* Opening — soft dreamy blue */
+#opening{
+  background:
+    radial-gradient(circle at 50% 30%, rgba(190,240,255,.45), transparent 35%),
+    linear-gradient(145deg,#0b527d,#126f9d,#0a3d60);
+}
+
+/* PIN — mysterious night */
+#pin{
+  background:
+    radial-gradient(circle at 50% 20%, rgba(125,210,255,.25), transparent 30%),
+    linear-gradient(160deg,#071d32,#0a3b5c,#06243c);
+}
+
+/* Gift — brighter magical blue */
+#gift{
+  background:
+    radial-gradient(circle at 50% 45%, rgba(255,230,150,.16), transparent 24%),
+    radial-gradient(circle at 50% 15%, rgba(155,230,255,.35), transparent 40%),
+    linear-gradient(160deg,#0b6492,#1686b9,#0b4c72);
+}
+
+/* Birthday — bright sky */
+#birthday{
+  background:
+    radial-gradient(circle at 50% 20%, rgba(210,247,255,.55), transparent 38%),
+    linear-gradient(160deg,#1ba4da,#1287bd,#0b6392);
+}
+
+/* Bouquet — romantic blue/purple */
+#bouquet{
+  background:
+    radial-gradient(circle at 50% 20%, rgba(220,190,255,.18), transparent 30%),
+    radial-gradient(circle at 20% 80%, rgba(130,220,255,.18), transparent 30%),
+    linear-gradient(145deg,#174d72,#225b82,#103b5b);
+}
+
+/* Memories — deeper cinematic */
+#memories{
+  background:
+    radial-gradient(circle at 50% 15%, rgba(143,216,255,.25), transparent 28%),
+    radial-gradient(circle at 80% 80%, rgba(130,170,255,.12), transparent 30%),
+    linear-gradient(160deg,#092b43,#071d2d,#041522);
+}
+
+/* Letter — keep it light and readable */
+#letter{
+  background:
+    radial-gradient(circle at 85% 10%, rgba(130,215,255,.28), transparent 30%),
+    linear-gradient(180deg,#eefbff,#d8f3ff);
+}
+
+/* Final confession — dramatic */
+#finale{
+  background:
+    radial-gradient(circle at 50% 25%, rgba(160,235,255,.35), transparent 30%),
+    radial-gradient(circle at 20% 80%, rgba(100,180,255,.18), transparent 30%),
+    linear-gradient(160deg,#0b4265,#082b45,#041a2b) !important;
+}
 #opening .small-text{
   margin-top:10px;
 }
