@@ -349,25 +349,75 @@ setTimeout(() => {
 }, OPENING_DURATION_MS);
 
 // ===============================
-// BACKGROUND MUSIC AUTOPLAY
+// BACKGROUND MUSIC
 // ===============================
 const bgMusic = document.getElementById("bgMusic");
+const musicToggle = document.getElementById("musicToggle");
+
+function updateMusicButton() {
+  if (!musicToggle || !bgMusic) return;
+
+  if (bgMusic.paused) {
+    musicToggle.textContent = "▶";
+    musicToggle.setAttribute("aria-label", "Play music");
+    musicToggle.classList.remove("playing");
+  } else {
+    musicToggle.textContent = "⏸";
+    musicToggle.setAttribute("aria-label", "Pause music");
+    musicToggle.classList.add("playing");
+  }
+}
 
 function startMusic() {
   if (!bgMusic || !bgMusic.paused) return;
 
   bgMusic.volume = 0.45;
 
-  bgMusic.play().catch(() => {
-    // Browser memblokir autoplay sampai ada interaksi user
-  });
+  bgMusic.play()
+    .then(() => {
+      updateMusicButton();
+    })
+    .catch(() => {
+      updateMusicButton();
+    });
 }
 
 // Coba autoplay saat halaman dibuka
-window.addEventListener("load", startMusic);
+window.addEventListener("load", () => {
+  startMusic();
+});
 
 // Kalau autoplay diblokir,
 // musik mulai pada interaksi pertama user.
 document.addEventListener("click", startMusic);
 document.addEventListener("touchstart", startMusic);
 document.addEventListener("keydown", startMusic);
+
+// Tombol musik manual
+if (musicToggle && bgMusic) {
+  musicToggle.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (bgMusic.paused) {
+      bgMusic.play()
+        .then(() => {
+          updateMusicButton();
+        })
+        .catch(() => {
+          updateMusicButton();
+        });
+    } else {
+      bgMusic.pause();
+      updateMusicButton();
+    }
+  });
+
+  // Sinkron otomatis kalau audio berubah
+  bgMusic.addEventListener("play", updateMusicButton);
+  bgMusic.addEventListener("pause", updateMusicButton);
+  bgMusic.addEventListener("ended", updateMusicButton);
+
+  // Set tampilan tombol saat awal
+  updateMusicButton();
+}
