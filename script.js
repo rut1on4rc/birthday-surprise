@@ -231,7 +231,6 @@ const answerTime = document.getElementById("answerTime");
 function sendAnswer(answer) {
   return new Promise(resolve => {
     const email = CONFIG.responseEmail;
-
     if (!email || email.includes("YOUR_EMAIL_HERE")) {
       console.warn("Response email is not configured.");
       resolve(false);
@@ -239,9 +238,7 @@ function sendAnswer(answer) {
     }
 
     if (window.location.protocol === "file:") {
-      console.warn(
-        "FormSubmit requires the site to be served over http/https, not opened directly as a file."
-      );
+      console.warn("FormSubmit requires the site to be served over http/https, not opened directly as a file.");
       resolve(false);
       return;
     }
@@ -258,29 +255,17 @@ function sendAnswer(answer) {
     form.target = iframeName;
     form.style.display = "none";
 
-    const clickedAt = new Date().toLocaleString("id-ID", {
-      dateStyle: "full",
-      timeStyle: "short"
-    });
-
-    const isYes = answer === "YES 💙";
-
     const fields = {
-      _subject: isYes
-        ? `💙 SHE SAID YES — ${CONFIG.name}`
-        : `🥺 SHE NEEDS TIME — ${CONFIG.name}`,
-
+      _subject: `Birthday Surprise — ${CONFIG.name} answered`,
       _captcha: "false",
       _template: "table",
-
-      "ANSWER": answer,
-      "RESULT": isYes
-        ? "💙 YES — She wants to give this a chance."
-        : "🥺 I NEED TIME — She needs more time to decide.",
-
-      "NAME": CONFIG.name,
-      "SENT BY": CONFIG.signature,
-      "CLICKED AT": clickedAt
+      answer,
+      recipient: CONFIG.name,
+      sender: CONFIG.signature,
+      time: new Date().toLocaleString("id-ID", {
+        dateStyle: "full",
+        timeStyle: "short"
+      })
     };
 
     Object.entries(fields).forEach(([name, value]) => {
@@ -302,7 +287,6 @@ function sendAnswer(answer) {
     }, 1200);
   });
 }
-
 async function handleAnswer(answer, button, message) {
   if (!answerNote) return;
 
