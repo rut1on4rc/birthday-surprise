@@ -231,6 +231,7 @@ const answerTime = document.getElementById("answerTime");
 function sendAnswer(answer) {
   return new Promise(resolve => {
     const email = CONFIG.responseEmail;
+
     if (!email || email.includes("YOUR_EMAIL_HERE")) {
       console.warn("Response email is not configured.");
       resolve(false);
@@ -238,7 +239,9 @@ function sendAnswer(answer) {
     }
 
     if (window.location.protocol === "file:") {
-      console.warn("FormSubmit requires the site to be served over http/https, not opened directly as a file.");
+      console.warn(
+        "FormSubmit requires the site to be served over http/https, not opened directly as a file."
+      );
       resolve(false);
       return;
     }
@@ -255,17 +258,29 @@ function sendAnswer(answer) {
     form.target = iframeName;
     form.style.display = "none";
 
+    const clickedAt = new Date().toLocaleString("id-ID", {
+      dateStyle: "full",
+      timeStyle: "short"
+    });
+
+    const isYes = answer === "YES 💙";
+
     const fields = {
-      _subject: `Birthday Surprise — ${CONFIG.name} answered`,
+      _subject: isYes
+        ? `💙 SHE SAID YES — ${CONFIG.name}`
+        : `🥺 SHE NEEDS TIME — ${CONFIG.name}`,
+
       _captcha: "false",
       _template: "table",
-      answer,
-      recipient: CONFIG.name,
-      sender: CONFIG.signature,
-      time: new Date().toLocaleString("id-ID", {
-        dateStyle: "full",
-        timeStyle: "short"
-      })
+
+      "ANSWER": answer,
+      "RESULT": isYes
+        ? "💙 YES — She wants to give this a chance."
+        : "🥺 I NEED TIME — She needs more time to decide.",
+
+      "NAME": CONFIG.name,
+      "SENT BY": CONFIG.signature,
+      "CLICKED AT": clickedAt
     };
 
     Object.entries(fields).forEach(([name, value]) => {
@@ -278,9 +293,8 @@ function sendAnswer(answer) {
 
     document.body.appendChild(form);
 
-    // A normal form POST cannot expose a reliable success response because the
-    // destination is cross-origin, so show the status after the request is sent.
     form.submit();
+
     setTimeout(() => {
       form.remove();
       iframe.remove();
