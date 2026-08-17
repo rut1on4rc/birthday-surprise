@@ -2,7 +2,7 @@ const CONFIG = {
   name: "Nanda Kurnia Ramadani",
   age: "",
   date: "29 SEPTEMBER",
-  pin: "2908",
+  pin: "2988",
   signature: "Gustavo",
   responseEmail: "rution969@gmail.com"
 };
