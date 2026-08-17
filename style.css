@@ -840,3 +840,264 @@ button{font:inherit}
 #opening{
   z-index:20;
 }
+/* =========================================
+   MOBILE POLISH — V5
+   ========================================= */
+
+@media (max-width: 700px) {
+
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .screen {
+    width: 100%;
+    min-height: 100dvh;
+    padding: 18px;
+  }
+
+  /* PIN */
+  #pin .card {
+    width: min(92vw, 380px);
+    padding: 26px 18px 22px;
+  }
+
+  #pin .card h1 {
+    font-size: 27px;
+  }
+
+  .keypad {
+    max-width: 225px;
+    gap: 9px;
+  }
+
+  .keypad button {
+    width: 52px;
+    height: 43px;
+  }
+
+  /* Birthday */
+  #birthday {
+    padding: 20px;
+  }
+
+  #birthday h2 {
+    width: 100%;
+    font-size: clamp(38px, 12vw, 58px);
+    line-height: .95;
+    margin: 15px 0;
+  }
+
+  #birthday h2 strong {
+    font-size: .82em;
+    overflow-wrap: anywhere;
+  }
+
+  .age {
+    font-size: 19px;
+  }
+
+  /* Gift */
+  #gift {
+    padding: 20px;
+  }
+
+  .gift-box {
+    transform:scale(.92);
+  }
+
+  /* Bouquet */
+  #bouquet {
+    padding: 20px;
+  }
+
+  #bouquet .bouquet-wrap {
+    width: 94vw;
+  }
+
+  #bouquet .bouquet-wrap h2 {
+    font-size: 27px;
+  }
+
+  #bouquet .flowers {
+    transform: scale(.9);
+    transform-origin: center top;
+  }
+
+  #bouquet .message-box {
+    width: min(90vw, 350px);
+    font-size: 14px;
+  }
+
+  #bouquet .next-btn {
+    bottom: 18px;
+  }
+
+  /* Letter */
+  #letter {
+    padding: 12px 0 25px;
+  }
+
+  #letter .letter {
+    width: 92vw;
+    padding: 27px 20px 30px;
+    border-radius: 22px;
+  }
+
+  #letter .letter h2 {
+    font-size: 28px;
+  }
+
+  #letter .letter p {
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  #letter .final-letter-btn {
+    width: min(82vw, 260px);
+    min-height: 48px;
+  }
+
+  /* FINAL CONFESSION */
+  #finale {
+    width: 100%;
+    min-height: 100dvh;
+    padding: 12px 0;
+  }
+
+  #finale .finale-frame {
+    width: 94vw;
+    min-height: calc(100dvh - 24px);
+    margin: 12px 0;
+    padding: 20px 10px 28px;
+    border-radius: 23px;
+  }
+
+  #finale .finale-card {
+    width: 100%;
+    padding: 8px 8px 18px;
+  }
+
+  #finale .final-star {
+    font-size: 31px;
+    margin-bottom: 9px;
+  }
+
+  #finale .eyebrow {
+    font-size: 9px;
+    letter-spacing: 2.5px;
+  }
+
+  #finale h2 {
+    font-size: clamp(48px, 15vw, 68px);
+    margin: 15px 0 2px;
+  }
+
+  #finale .final-flower {
+    font-size: 25px;
+    margin: 7px 0 15px;
+  }
+
+  #finale .final-copy {
+    width: 100%;
+    font-size: clamp(15px, 4.2vw, 19px);
+    line-height: 1.45;
+  }
+
+  #finale .final-copy p {
+    margin-bottom: 20px;
+  }
+
+  #finale .final-question {
+    width: 100%;
+    padding: 18px 12px;
+    margin: 2px auto 17px;
+    font-size: clamp(23px, 6.8vw, 32px);
+    line-height: 1.15;
+  }
+
+  #finale .final-question span {
+    font-size: 25px;
+    margin-top: 8px;
+  }
+
+  /* YES / TIME buttons */
+  #finale .final-actions {
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+    margin-top: 5px;
+  }
+
+  #finale .answer-btn {
+    min-height: 48px;
+    padding: 11px 7px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  #finale .answer-note {
+    width: 100%;
+    margin-top: 15px;
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  /* Music button */
+  .music-toggle {
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+}
+
+/* VERY SMALL PHONES */
+@media (max-width: 360px) {
+
+  #pin .card {
+    padding: 22px 14px;
+  }
+
+  #pin .card h1 {
+    font-size: 24px;
+  }
+
+  .keypad {
+    gap: 7px;
+  }
+
+  .keypad button {
+    width: 48px;
+    height: 40px;
+  }
+
+  #finale .finale-frame {
+    width: 96vw;
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+
+  #finale .finale-card {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  #finale h2 {
+    font-size: 45px;
+  }
+
+  #finale .final-copy {
+    font-size: 15px;
+  }
+
+  #finale .answer-btn {
+    font-size: 12px;
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+}
