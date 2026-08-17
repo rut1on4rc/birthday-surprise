@@ -348,3 +348,26 @@ setTimeout(() => {
   }
 }, OPENING_DURATION_MS);
 
+// ===============================
+// BACKGROUND MUSIC AUTOPLAY
+// ===============================
+const bgMusic = document.getElementById("bgMusic");
+
+function startMusic() {
+  if (!bgMusic || !bgMusic.paused) return;
+
+  bgMusic.volume = 0.45;
+
+  bgMusic.play().catch(() => {
+    // Browser memblokir autoplay sampai ada interaksi user
+  });
+}
+
+// Coba autoplay saat halaman dibuka
+window.addEventListener("load", startMusic);
+
+// Kalau autoplay diblokir,
+// musik mulai pada interaksi pertama user.
+document.addEventListener("click", startMusic);
+document.addEventListener("touchstart", startMusic);
+document.addEventListener("keydown", startMusic);
